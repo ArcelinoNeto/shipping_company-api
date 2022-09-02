@@ -27,11 +27,11 @@ bundle install
 
 3. Database configuration 
 
-To configure the database run
+To configure the database, run the command below
 ```
 rails db:setup
 ```
-
+To populate with data for testing run the command below
 ```
 rails dev:setup
 ```
