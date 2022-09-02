@@ -36,7 +36,6 @@ To populate with data for testing run the command below
 rails dev:setup
 ```
 
-
 4. Start the project
 ```
 rails s
