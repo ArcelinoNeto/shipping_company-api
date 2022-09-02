@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2022_08_23_193503) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string "kynd"
+    t.string "kind"
     t.string "description"
     t.string "value"
     t.datetime "created_at", precision: 6, null: false
