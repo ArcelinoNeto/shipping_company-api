@@ -28,7 +28,8 @@ class DeliverySearch < Searchlight::Search
     end
 
     def search_truck_name
-      truck_name = Truck.where(name: options[:truck_name])
+      entry_name = options[:truck_name]
+      truck_name = Truck.where('name LIKE ?', "%#{entry_name}%" )
       query.where(truck_id: truck_name)
     end
 
