@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :product do
-    kynd { "MyString" }
+    kind { "MyString" }
     description { "MyString" }
     value { "MyString" }
   end
