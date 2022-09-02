@@ -1,9 +1,9 @@
 # About
 This project is the result of a challenge proposed by the company Agrisafe.
-The project proposal is an API manages a "Shipping Company".
+The project proposal is the creation of an API to manage a "Shipping company"
 
 # Technology stack
-This is monolith application using 
+This is application using 
 - ruby on rails ``6.1.6.1``
 - ruby ``2.7.1``
 - postgresql
