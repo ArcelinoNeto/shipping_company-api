@@ -17,6 +17,12 @@ class DeliverySearch < Searchlight::Search
       Delivery.where('created_at >= ?', "%#{converted_date}%")
     end
 
+    def search_created_final
+      entry_date = options[:created_final]
+      converted_date = entry_date.to_date
+      Delivery.where('created_at <= ?', "%#{converted_date}%")
+    end
+
     def search_truck_id
       query.where(truck_id: options[:truck_id])
     end
