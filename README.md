@@ -15,7 +15,7 @@ This is application using
 
 1. Clone the project
 ```
-git clone https://github.com/derikbf/Quick-Orders.git
+git clone https://github.com/ArcelinoNeto/shipping_company-api.git
 ```
 ```
 cd shipping_company
