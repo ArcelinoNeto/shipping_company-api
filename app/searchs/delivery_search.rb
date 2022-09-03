@@ -29,21 +29,17 @@ class DeliverySearch < Searchlight::Search
 
     def search_truck_name
       entry_name = options[:truck_name]
-      truck_name = Truck.where('name LIKE ?', "%#{entry_name}%" )
-      query.where(truck_id: truck_name)
+      query.joins(:truck).where('name LIKE ?', "%#{entry_name}%" )
     end
 
     def search_truck_driver_id
-      truck_driver_id = TruckDriver.where(id: options[:truck_driver_id])
-      driver_driven_truck = Truck.where(truck_driver_id: truck_driver_id)
-      query.where(truck_id: driver_driven_truck)
+      truck_driver_id = options[:truck_driver_id]
+      query.joins(truck: :truck_driver).where('trucks.truck_driver_id = ?', "#{truck_driver_id}" )
     end
 
     def search_truck_driver_name
       entry_name = options[:truck_driver_name]
-      truck_driver_name = TruckDriver.where('name LIKE ?', "%#{entry_name}%")
-      driver_driven_truck = Truck.where(truck_driver_id: truck_driver_name)
-      query.where(truck_id: driver_driven_truck)
+      query.joins(truck: :truck_driver).where('truck_drivers.name LIKE ?', "%#{entry_name}%" )
     end
-    
+
 end
