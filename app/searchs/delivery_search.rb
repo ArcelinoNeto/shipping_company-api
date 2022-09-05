@@ -42,4 +42,13 @@ class DeliverySearch < Searchlight::Search
       query.joins(truck: :truck_driver).where('truck_drivers.name LIKE ?', "%#{entry_name}%" )
     end
 
+    def search_product_id
+      query.where(product_id: options[:product_id])
+    end
+
+    def search_product_kind
+      entry_kind = options[:product_kind]
+      query.joins(:product).where('kind LIKE ?', "%#{entry_kind}%" )
+    end
+
 end
