@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :delivery do
-    origin_city { "MyString" }
-    destiny_city { "MyString" }
-    truck { nil }
-    product { nil }
+    origin_city { Faker::Address.city }
+    destiny_city { Faker::Address.city }
+    association(:truck)
+    association(:product)
   end
 end

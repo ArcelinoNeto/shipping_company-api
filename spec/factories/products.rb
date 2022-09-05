@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :product do
-    kind { "MyString" }
-    description { "MyString" }
-    value { "MyString" }
+    kind { Faker::Commerce.material }
+    description { Faker::Commerce.product_name }
+    value { Faker::Commerce.price(range: 0..10.0, as_string: true) }
   end
 end

@@ -46,6 +46,7 @@ class TruckDriversController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def truck_driver_params
+      return {} unless params.has_key?(:truck_driver)
       params.require(:truck_driver).permit(:name)
     end
 end

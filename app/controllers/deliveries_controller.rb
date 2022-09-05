@@ -46,6 +46,7 @@ class DeliveriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def delivery_params
+      return {} unless params.has_key?(:delivery)
       params.require(:delivery).permit(:origin_city, :destiny_city, :truck_id, :product_id)
     end
 end
