@@ -11,14 +11,14 @@ class DeliverySearch < Searchlight::Search
       query.where('destiny_city LIKE ?', "%#{destiny_city}%")
     end
 
-    def search_created_at
-      entry_date = options[:created_at]
+    def search_created_at_above
+      entry_date = options[:created_at_above]
       converted_date = entry_date.to_date
       Delivery.where('created_at >= ?', "%#{converted_date}%")
     end
 
-    def search_created_final
-      entry_date = options[:created_final]
+    def search_created_less
+      entry_date = options[:created_less]
       converted_date = entry_date.to_date
       Delivery.where('created_at <= ?', "%#{converted_date}%")
     end
@@ -50,5 +50,4 @@ class DeliverySearch < Searchlight::Search
       entry_kind = options[:product_kind]
       query.joins(:product).where('kind LIKE ?', "%#{entry_kind}%" )
     end
-
 end
