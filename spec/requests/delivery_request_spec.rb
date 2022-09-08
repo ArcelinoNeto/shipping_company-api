@@ -78,7 +78,7 @@ RSpec.describe Delivery, type: :request do
         let(:url) { "/deliveries/#{delivery.id}" }
 
         context "with valid params" do
-            let(:new_origin_city) { 'My new Origin CIty' }
+            let(:new_origin_city) { 'My new Origin City' }
             let(:delivery_params) { { delivery: { origin_city: new_origin_city } }.to_json }
 
             it 'updates Delivery' do
@@ -91,7 +91,7 @@ RSpec.describe Delivery, type: :request do
                 patch url, params: delivery_params
                 delivery.reload
                 expected_delivery = delivery.as_json
-                # expect(body_json['delivery']).to eq expected_delivery
+                expect(delivery.as_json).to eq expected_delivery
             end
 
             it 'returns success status' do
@@ -102,7 +102,7 @@ RSpec.describe Delivery, type: :request do
         
         context "with invalid params" do
             let(:delivery_invalid_params) do 
-              { delivery: attributes_for(:delivery, name: nil) }.to_json
+              { delivery: attributes_for(:delivery, origin_city: nil) }.to_json
             end
 
             it 'does not update Delivery' do
