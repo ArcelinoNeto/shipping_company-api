@@ -11,7 +11,6 @@ RSpec.describe "TruckDrivers", type: :request do
             get url
             
             expected_truck_drivers = truck_drivers[0..4].as_json(only: %i(id name))
-            # binding.pry
             expect(truck_drivers[0..4].as_json(only: %i(id name))).to match_array expected_truck_drivers
         end
         

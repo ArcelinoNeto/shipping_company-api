@@ -24,7 +24,7 @@ RSpec.describe Delivery, type: :request do
         let(:url) { "/deliveries" }
 
         context "with valid params" do
-            let(:delivery_params) { { delivery: attributes_for(:delivery) }.to_json }
+            let(:delivery_params) { { delivery: attributes_for(:delivery, truck_id: "1", product_id: "1").as_json }.to_json }
 
             it 'adds a new Delivery' do
                 # binding.pry
@@ -40,8 +40,8 @@ RSpec.describe Delivery, type: :request do
             end
 
             it 'returns success status' do
-                # post url, params: delivery_params
-                # expect(response).to have_http_status(:ok)
+                post url, params: delivery_params
+                # expect(response).to have_http_status(:created)
             end
         end
       
@@ -114,6 +114,7 @@ RSpec.describe Delivery, type: :request do
 
             it 'returns unprocessable_entity status' do
                 patch url, params: delivery_invalid_params
+                # binding.pry                
                 # expect(response).to have_http_status(:unprocessable_entity)
             end
         end
