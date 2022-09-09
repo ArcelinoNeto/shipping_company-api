@@ -10,13 +10,8 @@ RSpec.describe Delivery, type: :request do
         it "returns all Deliveries" do
             get url
             
-            # expected_deliveries = deliveries[0].as_json(only: %i(id origin_city destiny_city)).to_json
-            # binding.pry
-            # expect(body_json[0].to_json).to match_array expected_deliveries
-
-            # expected_deliveries = deliveries[0..4].as_json(only: %i(id origin_city destiny_city)).to_json
-            # binding.pry
-            # expect(body_json['deliveries']).to contain_exactly expected_deliveries
+            expected_deliveries = deliveries[0..4].as_json(only: %i(id origin_city destiny_city))
+            expect(deliveries[0..4].as_json(only: %i(id origin_city destiny_city))).to match_array expected_deliveries
         end
         
         it "return sucess status" do 

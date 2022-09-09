@@ -10,9 +10,9 @@ RSpec.describe "TruckDrivers", type: :request do
         it "returns all Truck_drivers" do
             get url
             
-            expected_truck_drivers = truck_drivers[0..4].as_json(only: %i(id name)).to_json
+            expected_truck_drivers = truck_drivers[0..4].as_json(only: %i(id name))
             # binding.pry
-            # expect(truck_drivers.to_json).to match_array expected_truck_drivers
+            expect(truck_drivers[0..4].as_json(only: %i(id name))).to match_array expected_truck_drivers
         end
         
         it "return sucess status" do 
