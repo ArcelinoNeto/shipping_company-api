@@ -56,11 +56,6 @@ RSpec.describe "TruckDrivers", type: :request do
                 end.to_not change(TruckDriver, :count)
             end
 
-            it 'returns error message' do
-                post url, params: truck_driver_invalid_params
-                # expect(body_json['errors']['fields']).to have_key('name')
-            end
-
             it 'returns unprocessable_entity status' do
                 post url, params: truck_driver_invalid_params
                 expect(response).to have_http_status(:unprocessable_entity)
@@ -106,12 +101,7 @@ RSpec.describe "TruckDrivers", type: :request do
                 truck_driver.reload
                 expect(truck_driver.name).to eq old_name
             end
-
-            it 'returns error message' do
-                patch url, params: truck_driver_invalid_params
-                # expect(body_json['errors']['fields']).to have_key('origin_city')
-            end
-
+            
             it 'returns unprocessable_entity status' do
                 patch url, params: truck_driver_invalid_params
                 # expect(response).to have_http_status(:unprocessable_entity)
