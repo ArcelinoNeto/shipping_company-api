@@ -1,5 +1,5 @@
 # About
-This project is the result of a challenge proposed by the company Agrisafe.
+This project is the result of a challenge proposed by the company AgriSafe.
 The project proposal is the creation of an API to manage a "Shipping company"
 
 # Technology stack
