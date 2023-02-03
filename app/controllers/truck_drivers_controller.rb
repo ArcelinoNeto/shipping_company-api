@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
+# It's a controller that handles requests for the TruckDriver model
 class TruckDriversController < ApplicationController
-  before_action :set_truck_driver, only: [:show, :update, :destroy]
+  before_action :set_truck_driver, only: %i[show update destroy]
 
   # GET /truck_drivers
   def index
@@ -39,14 +42,16 @@ class TruckDriversController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_truck_driver
-      @truck_driver = TruckDriver.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def truck_driver_params
-      return {} unless params.has_key?(:truck_driver)
-      params.require(:truck_driver).permit(:name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_truck_driver
+    @truck_driver = TruckDriver.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def truck_driver_params
+    return {} unless params.key?(:truck_driver)
+
+    params.require(:truck_driver).permit(:name)
+  end
 end
